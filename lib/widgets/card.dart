@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:niku/namespace.dart' as n;
 
-// ignore: must_be_immutable
 class Card extends StatelessWidget {
-  Card({super.key, required this.child});
+  const Card({
+    super.key,
+    this.child = const SizedBox.shrink(),
+  });
 
-  Widget child;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: child,
-    );
+    return n.Box(child)
+      ..bg = Colors.white
+      ..elevation = 20.0
+      ..borderRadius = const BorderRadius.all(Radius.circular(10.0));
   }
 }
