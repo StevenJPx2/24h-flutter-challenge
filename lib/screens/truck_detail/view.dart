@@ -27,6 +27,7 @@ class TruckDetailScreen extends StatelessWidget {
         Card(
           child: n.Column([
             "Fleet Operator".n..titleMedium,
+            n.Box()..h = 7.0,
             DetailItem(
               descriptor: "Company Name",
               item: fleetOperator.companyName,
@@ -40,12 +41,14 @@ class TruckDetailScreen extends StatelessWidget {
               item: fleetOperator.phoneNumber,
             ),
           ])
+            ..crossStart
             ..px = 10.0
             ..py = 10.0,
         ),
         Card(
           child: n.Column([
             "Truck and Driver".n..titleMedium,
+            n.Box()..h = 7.0,
             DetailItem(descriptor: "Truck ID", item: truckDetail.id.toString()),
             DetailItem(
               descriptor: "Truck Registration Number",
@@ -60,6 +63,7 @@ class TruckDetailScreen extends StatelessWidget {
               item: truckDetail.driver.phoneNumber,
             ),
           ])
+            ..crossStart
             ..px = 10.0
             ..py = 10.0,
         ),
@@ -68,6 +72,7 @@ class TruckDetailScreen extends StatelessWidget {
             "Truck Status".n..titleMedium,
             getStatus(TruckStatus.values, truckDetail.truckStatus),
           ])
+            ..crossStart
             ..px = 10.0
             ..py = 10.0,
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_challenge/helpers.dart';
 import 'package:flutter_challenge/models/order.dart';
 import 'package:flutter_challenge/repos/orders.dart';
 import 'package:flutter_challenge/widgets/detail_item.dart';
@@ -42,7 +43,9 @@ class OrderScreen extends StatelessWidget {
             DetailItem(descriptor: "Order ID", item: order.id.toString()),
             DetailItem(
               descriptor: "Pickup Date",
-              item: (order.pickUp.date?.toString() ?? "To be determined"),
+              item: (order.pickUp.date != null
+                  ? formatDate(order.pickUp.date!)
+                  : "To be determined"),
             ),
             DetailItem(
               descriptor: "Preferred Vehicle",
@@ -63,14 +66,17 @@ class OrderScreen extends StatelessWidget {
         Card(
           child: n.Column([
             "Load Status".n..titleMedium,
+            n.Box()..h = 7.0,
             getStatus(Status.values, order.status),
           ])
+            ..crossStart
             ..px = 10.0
             ..py = 10.0,
         ),
         Card(
           child: n.Column([
             "Fleet Operator".n..titleMedium,
+            n.Box()..h = 7.0,
             DetailItem(
               descriptor: "Company Name",
               item: order.fleetOperator.companyName,
@@ -84,12 +90,14 @@ class OrderScreen extends StatelessWidget {
               item: order.fleetOperator.phoneNumber,
             ),
           ])
+            ..crossStart
             ..px = 10.0
             ..py = 10.0,
         ),
         Card(
           child: n.Column([
             "Truck and Driver".n..titleMedium,
+            n.Box()..h = 7.0,
             n.Row([
               n.Column([
                 DetailItem(
@@ -119,6 +127,7 @@ class OrderScreen extends StatelessWidget {
             ])
               ..spaceBetween
           ])
+            ..crossStart
             ..px = 10.0
             ..py = 10.0,
         )

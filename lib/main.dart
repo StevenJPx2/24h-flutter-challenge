@@ -17,7 +17,15 @@ class MyApp extends StatelessWidget {
       title: 'HaulX',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.grey,
+        textTheme: TextTheme(
+          bodyMedium: TextStyle(color: Colors.blueGrey.shade600),
+          labelMedium: TextStyle(color: Colors.grey.shade700),
+          labelLarge: TextStyle(color: Colors.grey.shade600),
+          titleMedium: const TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       routerConfig: GoRouter(routes: [
         GoRoute(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_challenge/helpers.dart';
 import 'package:flutter_challenge/models/order.dart';
 import 'package:niku/namespace.dart' as n;
 import 'package:recase/recase.dart';
@@ -19,7 +20,11 @@ class OrderCard extends StatelessWidget {
         endChild: n.Column([
           n.Box()..h = 10.0,
           location.commaSeparatedLocation.n,
-          (location.date?.toString() ?? "To be determined").n..labelMedium,
+          (location.date != null
+                  ? formatDate(location.date!)
+                  : "To be determined")
+              .n
+            ..labelMedium,
           n.Box()..h = 10.0
         ])
           ..crossStart,
@@ -40,7 +45,10 @@ class OrderCard extends StatelessWidget {
           order.pricePerTonne != null
               ? ("Rs ${order.pricePerTonne} Per Tonne".n..titleLarge)
               : ("Price Pending".n..titleSmall),
-          RawChip(label: order.status.name.titleCase.n),
+          RawChip(
+              label: order.status.name.titleCase.n
+                ..color = Colors.blue.shade900,
+              backgroundColor: Colors.blue.shade50),
         ])
           ..spaceBetween,
         n.Column(
@@ -58,7 +66,7 @@ class OrderCard extends StatelessWidget {
       ])
         ..crossStart
         ..px = 10.0
-        ..py = 10.0,
+        ..pb = 15.0,
     );
   }
 }
