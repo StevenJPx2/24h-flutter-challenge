@@ -28,6 +28,7 @@ final List<Order> orders = [
   Order(
     id: 2,
     status: Status.pending,
+    pricePerTonne: 2000.0,
     pickUp: Location(
       "Shreerang Society, Thane West, Thane",
       "Maharashtra",
@@ -52,6 +53,7 @@ final List<Order> orders = [
   Order(
     id: 3,
     status: Status.complete,
+    pricePerTonne: 1500.0,
     pickUp: Location(
       "Delhi Division",
       "Delhi",

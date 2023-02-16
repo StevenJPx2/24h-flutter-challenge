@@ -63,6 +63,8 @@ TimelineTile getTile(
 }
 
 Widget getStatus<T extends Enum>(List<T> values, T comparedValue) {
+  final lastIndex = values.length - 1;
+
   return n.ListView.children(
     values
         .map(
@@ -70,6 +72,8 @@ Widget getStatus<T extends Enum>(List<T> values, T comparedValue) {
             e.name.titleCase,
             e.index,
             comparedValue.index,
+            start: e.index == 0,
+            end: e.index == lastIndex,
           ),
         )
         .toList(),
